@@ -1,28 +1,6 @@
 
-body {
-  font-family: Arial, sans-serif;
-  background-color: #ffffff;
-  color: #000;
-  margin: 0;
-  padding: 0;
-}
-header {
-  background-color: black;
-  color: gold;
-  padding: 1em;
-  text-align: center;
-}
-nav a {
-  margin: 0 1em;
-  color: gold;
-  text-decoration: none;
-}
-footer {
-  background: #000;
-  color: gold;
-  text-align: center;
-  padding: 1em;
-  position: fixed;
-  width: 100%;
-  bottom: 0;
-}
+body { font-family: Arial; margin: 0; padding: 0; background: white; color: #000; }
+header, footer { background: black; color: gold; padding: 1em; text-align: center; }
+nav a { margin: 0 1em; color: gold; text-decoration: none; }
+h1, h2 { color: #111; }
+.signature { color: gold; font-style: italic; }
