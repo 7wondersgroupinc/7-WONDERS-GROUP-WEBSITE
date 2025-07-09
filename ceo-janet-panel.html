@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>JANET AI - CEO Portal</title>
+  <style>
+    body {
+      background-color: black;
+      color: gold;
+      font-family: Arial, sans-serif;
+      padding: 30px;
+    }
+    h1 {
+      text-align: center;
+    }
+    #chatbox {
+      background-color: #111;
+      border: 1px solid gold;
+      padding: 20px;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    #messages {
+      height: 300px;
+      overflow-y: auto;
+      border: 1px solid gold;
+      padding: 10px;
+      margin-bottom: 10px;
+      background-color: #000;
+    }
+    #input {
+      width: 70%;
+      padding: 10px;
+      font-size: 16px;
+    }
+    #send {
+      padding: 10px;
+      background-color: gold;
+      color: black;
+      border: none;
+      cursor: pointer;
+      font-size: 16px;
+    }
+  </style>
+</head>
+<body>
+  <script>
+    if (localStorage.getItem("auth") !== "granted") {
+      alert("Unauthorized. Redirecting to login.");
+      window.location.href = "ceo-login.html";
+    }
+  </script>
+
+  <h1>🧠 JANET AI - CEO Voice Panel</h1>
+  <div id="chatbox">
+    <div id="messages"></div>
+    <input id="input" type="text" placeholder="Speak to JANET..." />
+    <button id="send">Send</button>
+  </div>
+
+  <script>
+    const messages = document.getElementById("messages");
+    const input = document.getElementById("input");
+    const send = document.getElementById("send");
+
+    function respondToInput(text) {
+      const userMsg = document.createElement("div");
+      userMsg.innerHTML = "<strong>You:</strong> " + text;
+      messages.appendChild(userMsg);
+
+      const janetMsg = document.createElement("div");
+      janetMsg.innerHTML = "<strong>JANET:</strong> " + generateMockResponse(text);
+      messages.appendChild(janetMsg);
+
+      messages.scrollTop = messages.scrollHeight;
+    }
+
+    function generateMockResponse(inputText) {
+      const txt = inputText.toLowerCase();
+      if (txt.includes("status")) return "All systems are fully operational.";
+      if (txt.includes("scan")) return "Initiating full system scan now.";
+      if (txt.includes("investor")) return "You have 3 new investor messages.";
+      if (txt.includes("logout")) return "To logout, please click the logout button below.";
+      return "I'm here and listening. What would you like me to do next?";
+    }
+
+    send.addEventListener("click", () => {
+      const text = input.value.trim();
+      if (text) {
+        respondToInput(text);
+        input.value = "";
+      }
+    });
+
+    input.addEventListener("keydown", function(e) {
+      if (e.key === "Enter") send.click();
+    });
+  </script>
+
+  <div style="text-align:center; margin-top: 30px;">
+    <button onclick="logout()">Logout</button>
+  </div>
+
+  <script>
+    function logout() {
+      localStorage.removeItem("auth");
+      window.location.href = "ceo-login.html";
+    }
+  </script>
+</body>
+</html>
