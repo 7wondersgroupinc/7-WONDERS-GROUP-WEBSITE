@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>CEO Dashboard - 7 Wonders Group Inc.</title>
+</head>
+<body>
+  <script>
+    if (sessionStorage.getItem("auth") !== "granted") {
+      alert("Unauthorized. Redirecting to login.");
+      window.location.href = "ceo-login.html";
+    }
+  </script>
+  <h1>Welcome, CEO</h1>
+  <p>This is your secure dashboard for internal operations, investor approvals, and JANET AI access.</p>
+</body>
+</html>
