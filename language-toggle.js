@@ -1,1 +1,1 @@
-// Multi-language logic
+// Language switcher logic here

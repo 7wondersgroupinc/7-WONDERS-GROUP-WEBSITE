@@ -1,1 +1,1 @@
-// JANET chatbot functions
+// JANET chatbot AI logic

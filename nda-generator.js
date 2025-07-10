@@ -1,1 +1,1 @@
-// All NDAs now submitted to Richard@7wondersgroupinc.com
+// NDA generator routed to Richard@7wondersgroupinc.com

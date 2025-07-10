@@ -1,1 +1,1 @@
-// Voice/text AI dashboard commands
+// AI dashboard voice/text command interpreter
