@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Executive Login</title>
+  <style>
+    body { background-color: black; color: gold; font-family: Arial, sans-serif; padding: 50px; }
+    h1 { color: gold; text-align: center; }
+    form { max-width: 400px; margin: 0 auto; background: #111; padding: 30px; border-radius: 10px; }
+    input { width: 100%; padding: 10px; margin: 10px 0; background: #222; color: gold; border: 1px solid gold; }
+    button { background: gold; color: black; padding: 10px; width: 100%; font-weight: bold; cursor: pointer; }
+    .error { color: red; text-align: center; }
+  </style>
+</head>
+<body>
+  <h1>Executive Login</h1>
+  <form onsubmit="return checkLogin()">
+    <input type="text" id="username" placeholder="Email" required>
+    <input type="password" id="password" placeholder="Password" required>
+    <button type="submit">Login</button>
+    <p class="error" id="error-msg"></p>
+  </form>
+
+  <script>
+    function checkLogin() {
+      const email = document.getElementById('username').value.toLowerCase();
+      const pass = document.getElementById('password').value;
+
+      const accounts = {
+        "richard@7wondersgroupinc.com": "CEOpass2025",
+        "kadeem.bell@7wondersgroupinc.com": "COOpass2025",
+        "jessica.cauchi@7wondersgroupinc.com": "CFOpass2025",
+        "kyrie.bell@7wondersgroupinc.com": "CMOpass2025"
+      };
+
+      if (accounts[email] && accounts[email] === pass) {
+        let role = email.split("@")[0].split(".")[0]; // rough redirect by name
+        window.location.href = role + "-login.html";
+        return false;
+      } else {
+        document.getElementById('error-msg').innerText = "Invalid credentials.";
+        return false;
+      }
+    }
+  </script>
+</body>
+</html>
